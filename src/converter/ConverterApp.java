@@ -6,6 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Main class to start the program.
+ * @author Napasai Sutthichutipong
+ *
+ */
 public class ConverterApp extends Application {
 
 	/**
@@ -28,6 +33,10 @@ public class ConverterApp extends Application {
 		}
 	}
 
+	/**
+	 * Main method to run the program.
+	 * @param args not used
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -1,5 +1,10 @@
 package converter;
 
+/**
+ * This class contain value of all units for convert to another unit. 
+ * @author Napasai Sutthichutipong
+ *
+ */
 public enum Length {
 
 	meter(1.0000),
@@ -10,15 +15,23 @@ public enum Length {
 	wa(2.00000),
 	AU(149597870700L);
 	
-	// attributes of the enum members
+	/**
+	 * value of unit.
+	 */
 	private final double value;
 
-	// enum constructor must be private
+	/**
+	 * Constructor to initialize value of unit.
+	 * @param value of unit
+	 */
 	private Length(double value) {
 		this.value = value;
 	}
 
-	// methods are just like in a class
+	/**
+	 * Get the value of unit.
+	 * @return value of unit
+	 */
 	public double getValue() {
 		return this.value;
 	}

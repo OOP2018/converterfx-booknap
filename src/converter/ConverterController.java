@@ -2,9 +2,16 @@ package converter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+/**
+ * This class use to control GUI of the program.
+ * @author Napasai Sutthichutipong
+ *
+ */
 public class ConverterController {
 
 	@FXML
@@ -22,20 +29,25 @@ public class ConverterController {
 	public void handleConvert(ActionEvent event) {
 		double input;
 		double answer;
-		String output;
+		double x = combobox1.getValue().getValue();
+		double y = combobox2.getValue().getValue();
 		try {
 			if (textfield1.getText().trim().equals("")) {
 				input = Double.parseDouble(textfield2.getText().trim());
-				answer = input / 1.609344;
+				answer = input / y;
+				answer = answer * x;
 				textfield1.setText(String.format("%.5f", answer));
 			} else {
 				input = Double.parseDouble(textfield1.getText().trim());
-				answer = input * 1.609344;
+				answer = input * x;
+				answer = answer / y;
 				textfield2.setText(String.format("%.5f", answer));
 			}
 
 		} catch (Exception e) {
-			System.err.println("Invalid number");
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setHeaderText("Invalid number");
+			alert.showAndWait();
 		}
 	}
 
@@ -48,18 +60,20 @@ public class ConverterController {
 	 */
 	@FXML
 	public void initialize() {
-		// This is for testing
 		System.out.println("Running initialize");
 		if (combobox1 != null) {
 			combobox1.getItems().addAll(Length.values());
-			combobox1.getSelectionModel().select(0); // select an item to show
+			combobox1.getSelectionModel().select(0); 
 		}
 		if (combobox2 != null) {
 			combobox2.getItems().addAll(Length.values());
-			combobox2.getSelectionModel().select(1); // select an item to show
+			combobox2.getSelectionModel().select(1); 
 		}
 	}
 
+	/**
+	 * This method use to clear text in textfield.
+	 */
 	public void handleClear() {
 		textfield1.clear();
 		textfield2.clear();
