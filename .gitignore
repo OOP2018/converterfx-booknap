@@ -22,4 +22,8 @@ out/
 *.ipr
 
 # MacOS junk (if you use a Mac)
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> bc5c572112410e391343be1203c5e16cee3e0e2d
