@@ -2,8 +2,6 @@ package converter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -37,17 +35,21 @@ public class ConverterController {
 				answer = input / y;
 				answer = answer * x;
 				textfield1.setText(String.format("%.5f", answer));
-			} else {
+			}
+
+		} catch (NumberFormatException e) {
+			textfield1.setText("Invalid number");
+		}
+		
+		try {
+			if (textfield2.getText().trim().equals("")) {
 				input = Double.parseDouble(textfield1.getText().trim());
 				answer = input * x;
 				answer = answer / y;
 				textfield2.setText(String.format("%.5f", answer));
 			}
-
-		} catch (Exception e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setHeaderText("Invalid number");
-			alert.showAndWait();
+		} catch (NumberFormatException e) {
+			textfield2.setText("Invalid number");
 		}
 	}
 
@@ -63,11 +65,11 @@ public class ConverterController {
 		System.out.println("Running initialize");
 		if (combobox1 != null) {
 			combobox1.getItems().addAll(Length.values());
-			combobox1.getSelectionModel().select(0); 
+			combobox1.getSelectionModel().select(0);
 		}
 		if (combobox2 != null) {
 			combobox2.getItems().addAll(Length.values());
-			combobox2.getSelectionModel().select(1); 
+			combobox2.getSelectionModel().select(1);
 		}
 	}
 
