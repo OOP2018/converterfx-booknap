@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 /**
  * This class use to control GUI of the program.
+ * 
  * @author Napasai Sutthichutipong
  *
  */
@@ -32,20 +33,20 @@ public class ConverterController {
 		try {
 			if (textfield1.getText().trim().equals("")) {
 				input = Double.parseDouble(textfield2.getText().trim());
-				answer = input / y;
-				answer = answer * x;
+				answer = input / x;
+				answer = answer * y;
 				textfield1.setText(String.format("%.5f", answer));
 			}
 
 		} catch (NumberFormatException e) {
 			textfield1.setText("Invalid number");
 		}
-		
+
 		try {
 			if (textfield2.getText().trim().equals("")) {
 				input = Double.parseDouble(textfield1.getText().trim());
-				answer = input * x;
-				answer = answer / y;
+				answer = input / y;
+				answer = answer * x;
 				textfield2.setText(String.format("%.5f", answer));
 			}
 		} catch (NumberFormatException e) {
@@ -62,7 +63,6 @@ public class ConverterController {
 	 */
 	@FXML
 	public void initialize() {
-		System.out.println("Running initialize");
 		if (combobox1 != null) {
 			combobox1.getItems().addAll(Length.values());
 			combobox1.getSelectionModel().select(0);

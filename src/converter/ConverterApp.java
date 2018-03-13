@@ -26,7 +26,7 @@ public class ConverterApp extends Application {
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.sizeToScene();
-			stage.setTitle("App Title Goes Here");
+			stage.setTitle("Length converter");
 			stage.show();
 		} catch (Exception e) {
 			System.out.println("Exception creating scene: " + e.getMessage());
